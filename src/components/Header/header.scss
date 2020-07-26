@@ -1,0 +1,29 @@
+header {
+  background-color: var(--theme-bg-color-1);
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0rem;
+  }
+
+  .nav-brand {
+    margin-right: auto;
+  }
+  .nav-end {
+    margin-left: auto;
+  }
+
+  .link {
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+  }
+
+  .toggle-theme-btn {
+    background-color: var(--theme-bg-color-1);
+    border: none;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    display: flex;
+  }
+}
