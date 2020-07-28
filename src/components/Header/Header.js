@@ -9,12 +9,12 @@ const Header = () => {
   return (
     <header>
       <nav className="container nav nav-bar">
-        <div className="nav-brand">
+        <div className="nav-brand mr-auto">
           <Link to="/" className="link">
             Where in the world
           </Link>
         </div>
-        <div className="nav-end">
+        <div className="nav-end ml-auto">
           <button className="toggle-theme-btn">
             <Theme className="icon" />
             Dark Theme

@@ -160,7 +160,7 @@ table {
 
 /* RESET STYLING STARTS */
 
-/* COMMON STYLING */
+/* COMMON STYLING STARTS */
 
 body,
 * {
@@ -188,6 +188,16 @@ body,
   }
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+/* COMMON STYLING ENDS */
+
 .icon {
   margin-right: 0.5rem;
   margin-top: -1px;
@@ -195,6 +205,5 @@ body,
 
 .main-wrapper {
   background-color: var(--theme-bg-color-2);
-  height: 100vh;
-  padding: 3rem;
+  min-height: calc(100vh - 50px);
 }

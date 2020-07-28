@@ -1,0 +1,39 @@
+.homepage-wrapper {
+  .filter-wrapper {
+    display: flex;
+    padding-top: 2rem;
+  }
+  .input-group {
+    display: flex;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-bg-color-1);
+    border-radius: 0.2rem;
+
+    @media screen and(min-width: 768px) {
+      width: 150%;
+    }
+
+    .icon-wrapper,
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .input-wrapper {
+      flex: 1;
+      .form-input {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .form-select {
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-bg-color-1);
+    border-radius: 0.2rem;
+  }
+}

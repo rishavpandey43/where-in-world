@@ -7,22 +7,15 @@ header {
     padding: 1rem 0rem;
   }
 
-  .nav-brand {
-    margin-right: auto;
-  }
-  .nav-end {
-    margin-left: auto;
-  }
-
   .link {
-    padding: 0.8rem 1.2rem;
+    padding: 0.5rem 0rem;
     text-decoration: none;
   }
 
   .toggle-theme-btn {
     background-color: var(--theme-bg-color-1);
     border: none;
-    padding: 0.8rem 1.2rem;
+    padding: 0.5rem 0rem;
     cursor: pointer;
     display: flex;
   }
