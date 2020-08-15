@@ -1,0 +1,58 @@
+.country-wrapper {
+  padding-top: 2rem;
+
+  .back {
+    border: 1px solid var(--theme-bg-color-1);
+    background-color: var(--theme-bg-color-1);
+    padding: 0.3rem 2rem;
+    border-radius: 0.5rem;
+    &:hover {
+      box-shadow: 0.1rem 0rem 0.7rem var(--theme-bg-color-1);
+    }
+  }
+
+  .country {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+
+    .flag {
+      width: 100%;
+    }
+
+    .detail {
+      padding: 1rem;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .more-detail {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        > div > * {
+          line-height: 2rem;
+        }
+      }
+
+      .boundaries {
+        margin-top: 2rem;
+        display: flex;
+        flex: row wrap;
+        align-items: center;
+        // h3 {
+        //   display: inline;
+        // }
+        span {
+          padding: 0.3rem 1rem;
+          margin: 0rem 0.3rem;
+          background-color: var(--theme-bg-color-1);
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+}

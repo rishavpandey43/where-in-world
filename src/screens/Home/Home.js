@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Search } from '../../assets/svg';
 
@@ -71,6 +72,39 @@ const Home = () => {
               ))}
             </select>
           </div>
+        </div>
+        <div className="country-list-wrapper">
+          <ul className="country-list">
+            {countryList.map((country) => (
+              <li className="country" key={country.alpha2Code}>
+                <Link
+                  to={{
+                    pathname: `/country/:${country.alpha2Code.toLowerCase()}`,
+                    state: {
+                      country,
+                    },
+                  }}
+                >
+                  <img
+                    className="flag-img"
+                    src={country.flag}
+                    alt={country.name}
+                  />
+                  <div className="detail">
+                    <h3 className="name">{country.name}</h3>
+                    <label>Population:</label>
+                    <span>&nbsp;{country.population.toLocaleString()}</span>
+                    <br />
+                    <label>Region:</label>
+                    <span>&nbsp;{country.region}</span>
+                    <br />
+                    <label>Capital:</label>
+                    <span>&nbsp;{country.capital}</span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
