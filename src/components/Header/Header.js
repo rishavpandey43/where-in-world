@@ -60,7 +60,7 @@ const Header = () => {
         <div className="nav-end ml-auto">
           <button className="toggle-theme-btn" onClick={changeTheme}>
             <Theme className="icon" />
-            Dark Theme
+            {theme === 'dark' ? 'Dark' : 'Light'} Theme
           </button>
         </div>
       </nav>
