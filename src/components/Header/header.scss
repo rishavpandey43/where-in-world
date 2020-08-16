@@ -1,0 +1,30 @@
+header {
+  background-color: var(--theme-bg-color-1);
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .link {
+    padding: 0.5rem 0rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .toggle-theme-btn {
+    background-color: var(--theme-bg-color-1);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    box-shadow: var(--shadow) 0rem 0.1rem 0.5rem;
+  }
+}
