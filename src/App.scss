@@ -1,14 +1,8 @@
 :root {
-  // --dark-theme-bg-color-1: #2b3945;
-  // --dark-theme-bg-color-2: #202c37;
-  // --light-theme-text-color: #828282;
-  // --dark-gray: #858585;
-  // --very-light-gray: #fafafa;
-  // --dark-theme-text-color: #ffffff;
   --theme-bg-color-1: #2b3945;
   --theme-bg-color-2: #202c37;
   --theme-text-color: #ffffff;
-  --shadow: #d4d4d4;
+  --shadow: #171f27;
 }
 
 @font-face {
@@ -191,6 +185,9 @@ body,
 
 .ml-auto {
   margin-left: auto;
+  @media screen and (max-width: 391px) {
+    margin-left: 0;
+  }
 }
 
 .mr-auto {

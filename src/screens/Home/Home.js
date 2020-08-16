@@ -11,9 +11,13 @@ const Home = () => {
     filter: '',
   });
   const [countryList, setCountryList] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const [errMessage, setErrMessage] = useState(null);
+  const [filteredCountryList, setFilteredCountryList] = useState([]);
   const [filterList, setFilterList] = useState([]);
 
   useEffect(() => {
+    setLoader(true);
     fetch('https://restcountries.eu/rest/v2/all')
       .then((response) => response.json())
       .then((countryList) => {
@@ -24,12 +28,32 @@ const Home = () => {
           }
         });
         setCountryList(countryList);
+        setFilteredCountryList(countryList);
         setFilterList(filterList);
+        setLoader(false);
+      })
+      .catch((err) => {
+        setLoader(false);
+        setErrMessage('Some error occured, please try again');
       });
   }, []);
 
   const _handleOnChange = (e, type) => {
     _setState({ ...state, [type]: e.target.value });
+    if (type === 'filter') {
+      if (e.target.value.toLowerCase() === 'all') {
+        setFilteredCountryList(countryList);
+      } else {
+        setFilteredCountryList(
+          countryList.filter(
+            (country) =>
+              country.region.toLowerCase() === e.target.value.toLowerCase()
+          )
+        );
+      }
+    } else {
+      return;
+    }
   };
 
   return (
@@ -49,6 +73,7 @@ const Home = () => {
                   onChange={(e) => {
                     _handleOnChange(e, 'inputText');
                   }}
+                  aria-label="search country"
                 />
               </div>
             </div>
@@ -60,6 +85,7 @@ const Home = () => {
               onChange={(e) => {
                 _handleOnChange(e, 'filter');
               }}
+              aria-label="select region"
             >
               <option value="" disabled hidden>
                 Filter by region
@@ -74,37 +100,50 @@ const Home = () => {
           </div>
         </div>
         <div className="country-list-wrapper">
-          <ul className="country-list">
-            {countryList.map((country) => (
-              <li className="country" key={country.alpha2Code}>
-                <Link
-                  to={{
-                    pathname: `/country/:${country.alpha2Code.toLowerCase()}`,
-                    state: {
-                      country,
-                    },
-                  }}
-                >
-                  <img
-                    className="flag-img"
-                    src={country.flag}
-                    alt={country.name}
-                  />
-                  <div className="detail">
-                    <h3 className="name">{country.name}</h3>
-                    <label>Population:</label>
-                    <span>&nbsp;{country.population.toLocaleString()}</span>
-                    <br />
-                    <label>Region:</label>
-                    <span>&nbsp;{country.region}</span>
-                    <br />
-                    <label>Capital:</label>
-                    <span>&nbsp;{country.capital}</span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {loader ? (
+            <h1>Loading...</h1>
+          ) : errMessage ? (
+            <h1 className="err-message">{errMessage}</h1>
+          ) : (
+            <ul className="country-list">
+              {filteredCountryList
+                .filter(
+                  (country) =>
+                    country.name
+                      .toLowerCase()
+                      .search(state.inputText.toLowerCase()) !== -1
+                )
+                .map((country) => (
+                  <li className="country" key={country.alpha2Code}>
+                    <Link
+                      to={{
+                        pathname: `/country/:${country.alpha2Code.toLowerCase()}`,
+                        state: {
+                          country,
+                        },
+                      }}
+                    >
+                      <img
+                        className="flag-img"
+                        src={country.flag}
+                        alt={country.name}
+                      />
+                      <div className="detail">
+                        <h3 className="name">{country.name}</h3>
+                        <label>Population:</label>
+                        <span>&nbsp;{country.population.toLocaleString()}</span>
+                        <br />
+                        <label>Region:</label>
+                        <span>&nbsp;{country.region}</span>
+                        <br />
+                        <label>Capital:</label>
+                        <span>&nbsp;{country.capital}</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>
