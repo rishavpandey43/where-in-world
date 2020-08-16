@@ -1,0 +1,65 @@
+.country-wrapper {
+  padding-top: 2rem;
+
+  .back {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    border: 1px solid var(--theme-bg-color-1);
+    background-color: var(--theme-bg-color-1);
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    &:hover {
+      box-shadow: 0.1rem 0rem 0.7rem var(--theme-bg-color-1);
+    }
+  }
+
+  .country {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-rows: auto;
+    @media only screen and (min-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flag {
+      width: 100%;
+    }
+
+    .detail {
+      padding: 1rem;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .more-detail {
+        display: grid;
+        grid-template-rows: auto;
+        @media only screen and (min-width: 600px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        > div > * {
+          line-height: 2rem;
+        }
+      }
+
+      .borders {
+        margin-top: 2rem;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        // h3 {
+        //   display: inline;
+        // }
+        .border {
+          padding: 0.3rem 1rem;
+          margin: 0.3rem;
+          background-color: var(--theme-bg-color-1);
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+}
